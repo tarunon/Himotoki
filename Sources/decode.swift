@@ -37,7 +37,7 @@ public func decodeDictionary<T: Decodable>(object: AnyObject) throws -> [String:
         throw typeMismatch("Dictionary", actual: object, keyPath: nil)
     }
 
-    var result: [String: T] = [:]
+    var result = [String: T](minimumCapacity: dictionary.count)
     try dictionary.forEach { key, value in
         result[key] = try decode(value) as T
     }
