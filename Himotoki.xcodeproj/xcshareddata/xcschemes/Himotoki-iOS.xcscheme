@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CD929A361AF4A2C3002F5C53"
-               BuildableName = "Himotoki.framework"
+               BuildableName = ".framework"
                BlueprintName = "Himotoki-iOS"
                ReferencedContainer = "container:Himotoki.xcodeproj">
             </BuildableReference>
@@ -58,7 +58,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD929A361AF4A2C3002F5C53"
-            BuildableName = "Himotoki.framework"
+            BuildableName = ".framework"
             BlueprintName = "Himotoki-iOS"
             ReferencedContainer = "container:Himotoki.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD929A361AF4A2C3002F5C53"
-            BuildableName = "Himotoki.framework"
+            BuildableName = ".framework"
             BlueprintName = "Himotoki-iOS"
             ReferencedContainer = "container:Himotoki.xcodeproj">
          </BuildableReference>
@@ -98,7 +98,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD929A361AF4A2C3002F5C53"
-            BuildableName = "Himotoki.framework"
+            BuildableName = ".framework"
             BlueprintName = "Himotoki-iOS"
             ReferencedContainer = "container:Himotoki.xcodeproj">
          </BuildableReference>

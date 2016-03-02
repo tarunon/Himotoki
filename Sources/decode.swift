@@ -7,18 +7,18 @@
 //
 
 /// - Throws: DecodeError
-public func decode<T: Decodable where T.DecodedType == T>(object: AnyObject) throws -> T {
+public func decode<T: Decodable>(object: AnyObject) throws -> T {
     let extractor = Extractor(object)
     return try T.decode(extractor)
 }
 
 /// - Throws: DecodeError
-public func decode<T: Decodable where T.DecodedType == T>(object: AnyObject, rootKeyPath: KeyPath) throws -> T {
+public func decode<T: Decodable>(object: AnyObject, rootKeyPath: KeyPath) throws -> T {
     return try decode(object) <| rootKeyPath
 }
 
 /// - Throws: DecodeError
-public func decodeArray<T: Decodable where T.DecodedType == T>(object: AnyObject) throws -> [T] {
+public func decodeArray<T: Decodable>(object: AnyObject) throws -> [T] {
     guard let array = object as? [AnyObject] else {
         throw typeMismatch("Array", actual: object, keyPath: nil)
     }
@@ -27,12 +27,12 @@ public func decodeArray<T: Decodable where T.DecodedType == T>(object: AnyObject
 }
 
 /// - Throws: DecodeError
-public func decodeArray<T: Decodable where T.DecodedType == T>(object: AnyObject, rootKeyPath: KeyPath) throws -> [T] {
+public func decodeArray<T: Decodable>(object: AnyObject, rootKeyPath: KeyPath) throws -> [T] {
     return try decode(object) <|| rootKeyPath
 }
 
 /// - Throws: DecodeError
-public func decodeDictionary<T: Decodable where T.DecodedType == T>(object: AnyObject) throws -> [String: T] {
+public func decodeDictionary<T: Decodable>(object: AnyObject) throws -> [String: T] {
     guard let dictionary = object as? [String: AnyObject] else {
         throw typeMismatch("Dictionary", actual: object, keyPath: nil)
     }
@@ -45,6 +45,6 @@ public func decodeDictionary<T: Decodable where T.DecodedType == T>(object: AnyO
 }
 
 /// - Throws: DecodeError
-public func decodeDictionary<T: Decodable where T.DecodedType == T>(object: AnyObject, rootKeyPath: KeyPath) throws -> [String: T] {
+public func decodeDictionary<T: Decodable>(object: AnyObject, rootKeyPath: KeyPath) throws -> [String: T] {
     return try decode(object) <|-| rootKeyPath
 }

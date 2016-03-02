@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CD8F0DC61B6D014B0021196A"
-               BuildableName = "Himotoki.framework"
+               BuildableName = ".framework"
                BlueprintName = "Himotoki-watchOS"
                ReferencedContainer = "container:Himotoki.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD8F0DC61B6D014B0021196A"
-            BuildableName = "Himotoki.framework"
+            BuildableName = ".framework"
             BlueprintName = "Himotoki-watchOS"
             ReferencedContainer = "container:Himotoki.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CD8F0DC61B6D014B0021196A"
-            BuildableName = "Himotoki.framework"
+            BuildableName = ".framework"
             BlueprintName = "Himotoki-watchOS"
             ReferencedContainer = "container:Himotoki.xcodeproj">
          </BuildableReference>
