@@ -36,8 +36,8 @@ extension NestedObjectParsingTest {
 
 struct WithNestedObject: Decodable {
     let nestedName: String
-
-    static func decode(_ e: Extractor) throws -> WithNestedObject {
-        return self.init(nestedName: try e <| [ "nested", "name" ])
+    
+    init(decode e: Extractor) throws {
+        self.nestedName = try e <| [ "nested", "name" ]
     }
 }

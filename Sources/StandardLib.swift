@@ -6,40 +6,28 @@
 //  Copyright © 2015 Syo Ikeda. All rights reserved.
 //
 
-extension String: Decodable {
-    public static func decode(_ e: Extractor) throws -> String {
-        return try castOrFail(e)
-    }
+extension String: CastDecodable {
+
 }
 
-extension Int: Decodable {
-    public static func decode(_ e: Extractor) throws -> Int {
-        return try castOrFail(e)
-    }
+extension Int: CastDecodable {
+
 }
 
-extension UInt: Decodable {
-    public static func decode(_ e: Extractor) throws -> UInt {
-        return try castOrFail(e)
-    }
+extension UInt: CastDecodable {
+
 }
 
-extension Double: Decodable {
-    public static func decode(_ e: Extractor) throws -> Double {
-        return try castOrFail(e)
-    }
+extension Double: CastDecodable {
+
 }
 
-extension Float: Decodable {
-    public static func decode(_ e: Extractor) throws -> Float {
-        return try castOrFail(e)
-    }
+extension Float: CastDecodable {
+
 }
 
-extension Bool: Decodable {
-    public static func decode(_ e: Extractor) throws -> Bool {
-        return try castOrFail(e)
-    }
+extension Bool: CastDecodable {
+
 }
 
 // MARK: - Extensions

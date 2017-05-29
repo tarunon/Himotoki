@@ -7,13 +7,13 @@
 //
 
 public extension RawRepresentable where Self: Decodable, RawValue: Decodable {
-    static func decode(_ e: Extractor) throws -> Self {
-        let rawValue = try RawValue.decode(e)
+    public init(decode e: Extractor) throws {
+        let rawValue = try RawValue(decode :e)
 
-        guard let value = self.init(rawValue: rawValue) else {
-            throw typeMismatch("rawValue for \(self)", actual: rawValue)
+        guard let value = Self(rawValue: rawValue) else {
+            throw typeMismatch("rawValue for \(Self.self)", actual: rawValue)
         }
 
-        return value
+        self = value
     }
 }

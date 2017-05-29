@@ -216,26 +216,24 @@ struct Person: Decodable {
     let group: Group
     let groups: [Group]
 
-    static func decode(_ e: Extractor) throws -> Person {
-        return try Person(
-            firstName: e <| "first_name",
-            lastName: e <| "last_name",
-            age: e <| "age",
-            int64: e <| "int64",
-            height: e <| "height",
-            float: e <| "float",
-            bool: e <| "bool",
-            number: e <| "number",
-            rawValue: (e <| "raw_value" as Extractor).rawValue,
-            nested: e <| [ "nested", "value" ],
-            nestedDict: e <|-| [ "nested", "dict" ],
-            array: e <|| "array",
-            arrayOption: e <||? "arrayOption",
-            dictionary: e <|-| "dictionary",
-            dictionaryOption: e <|-|? "dictionaryOption",
-            group: e <| "group",
-            groups: e <|| "groups"
-        )
+    init(decode e: Extractor) throws {
+        self.firstName = try e <| "first_name"
+        self.lastName = try e <| "last_name"
+        self.age = try e <| "age"
+        self.int64 = try e <| "int64"
+        self.height = try e <| "height"
+        self.float = try e <| "float"
+        self.bool = try e <| "bool"
+        self.number = try e <| "number"
+        self.rawValue = try (e <| "raw_value" as Extractor).rawValue
+        self.nested = try e <| [ "nested", "value" ]
+        self.nestedDict = try e <|-| [ "nested", "dict" ]
+        self.array = try e <|| "array"
+        self.arrayOption = try e <||? "arrayOption"
+        self.dictionary = try e <|-| "dictionary"
+        self.dictionaryOption = try e <|-|? "dictionaryOption"
+        self.group = try e <| "group"
+        self.groups = try e <|| "groups"
     }
 }
 
@@ -244,12 +242,10 @@ struct Group: Decodable {
     let floor: Int
     let optional: [String]?
 
-    static func decode(_ e: Extractor) throws -> Group {
-        return try Group(
-            name: e <| "name",
-            floor: e <| "floor",
-            optional: e <||? "optional"
-        )
+    init(decode e: Extractor) throws {
+        self.name = try e <| "name"
+        self.floor = try e <| "floor"
+        self.optional = try e <||? "optional"
     }
 }
 
@@ -265,18 +261,16 @@ struct Numbers: Decodable {
     let int64: Int64
     let uint64: UInt64
 
-    static func decode(_ e: Extractor) throws -> Numbers {
-        return try Numbers(
-            int: e <| "int",
-            uint: e <| "uint",
-            int8: e <| "int8",
-            uint8: e <| "uint8",
-            int16: e <| "int16",
-            uint16: e <| "uint16",
-            int32: e <| "int32",
-            uint32: e <| "uint32",
-            int64: e <| "int64",
-            uint64: e <| "uint64"
-        )
+    init(decode e: Extractor) throws {
+        self.int = try e <| "int"
+        self.uint = try e <| "uint"
+        self.int8 = try e <| "int8"
+        self.uint8 = try e <| "uint8"
+        self.int16 = try e <| "int16"
+        self.uint16 = try e <| "uint16"
+        self.int32 = try e <| "int32"
+        self.uint32 = try e <| "uint32"
+        self.int64 = try e <| "int64"
+        self.uint64 = try e <| "uint64"
     }
 }

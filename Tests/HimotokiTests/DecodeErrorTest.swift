@@ -11,8 +11,8 @@ import XCTest
 import Himotoki
 
 extension URL: Decodable {
-    public static func decode(_ e: Extractor) throws -> URL {
-        let value = try String.decode(e)
+    public init(decode e: Extractor) throws {
+        let value = try String(decode: e)
 
         if value.isEmpty {
             throw DecodeError.missingKeyPath([])
@@ -22,31 +22,34 @@ extension URL: Decodable {
             throw customError("File URL is not supported")
         }
 
-        return try castOrFail(self.init(string: value) as Any)
+        guard let url = URL(string: value) else {
+            throw DecodeError.typeMismatch(expected: "\(URL.self)", actual: value, keyPath: [])
+        }
+        self = url
     }
 }
 
 private struct URLHolder: Decodable {
     let url: URL
 
-    static func decode(_ e: Extractor) throws -> URLHolder {
-        return self.init(url: try e <| "url")
+    init(decode e: Extractor) throws {
+        self.url = try e <| "url"
     }
 }
 
 private struct A: Decodable { // swiftlint:disable:this type_name
     let b: B? // swiftlint:disable:this variable_name
 
-    static func decode(_ e: Extractor) throws -> A {
-        return self.init(b: try e <|? "b")
+    init(decode e: Extractor) throws {
+        self.b = try e <|? "b"
     }
 }
 
 private struct B: Decodable { // swiftlint:disable:this type_name
     let string: String
 
-    static func decode(_ e: Extractor) throws -> B {
-        return self.init(string: try e <| "string")
+    init(decode e: Extractor) throws {
+        self.string = try e <| "string"
     }
 }
 

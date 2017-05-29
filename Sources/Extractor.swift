@@ -81,8 +81,8 @@ public struct Extractor {
 }
 
 extension Extractor: Decodable {
-    public static func decode(_ e: Extractor) throws -> Extractor {
-        return e
+    public init(decode e: Extractor) throws {
+        self = e
     }
 }
 
